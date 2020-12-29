@@ -241,17 +241,24 @@
 .aside-right .year .years {
   width: 130px;
 }
+#css-revelation-light #demonstration div {
+  display: block;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 #css-revelation-light #demonstration div h1 {
   font-family: Arial, Helvetica, sans-serif;
-  position: relative;
   color: #333;
+  position: relative;
   font-size: 80px;
 }
 #css-revelation-light #demonstration div h1::after {
-  content: attr(data-spotlight);
+  content: 'CodingStartUp';
   color: transparent;
   position: absolute;
-  left: 203.5px;
+  left: 0;
   -webkit-clip-path: ellipse(80px 80px at 0% 50%);
   clip-path: ellipse(80px 80px at 0% 50%);
   animation: spotlight 5s infinite;
