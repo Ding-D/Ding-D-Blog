@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <script src="./assets/lib/less.js-2.5.3/less.min.js"></script>
+  <!-- 引入样式 -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"> -->
+  <script src="./assets/lib/element/index.css"></script>
+
+  <!-- vue需在ele.js之前 -->
+  <script src="./assets/lib/vue/vue.js"></script>
+  <script src="./assets/lib/vue/vue-router_3.0.2.js"></script>
+
+  <!-- 引入组件库 -->
+  <!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
+  <script src="./assets/lib/element/index.js"></script>
+  <script src="./assets/js/index.js"></script>
+  <script src="./assets/lib/makedown-it/markdown-it.min.js"></script>
+  <script>
+    var md = window.markdownit();
+  </script>
+</head>
+
+<body>
+  <div id="root">
+    <!-- 路由占位符 -->
+    <router-view />
+  </div>
+  <script src="./commponent/home/home.js"></script>
+  <script src="./commponent/article/article-list.js"></script>
+  <script src="./commponent/article/article-list-home.js"></script>
+  <script src="./commponent/article/articleList/css-revelation-light.js"></script>
+  <script>
+    // 创建路由实例对象
+    const router = new VueRouter({
+      // 所有的路由规则
+      routes: [
+        {
+          path: '/',
+          component: home,
+          redirect: '/articleListHome',  //重定向 
+          children: [
+            { path: '/articleListHome', component: articleListHome },
+            { path: '/cssRevelationLight', component: cssRevelationLight }
+
+          ]
+        },
+      ]
+    })
+
+    // 创建 vue  实例对象
+    var root = new Vue({
+      el: '#root',
+      data: {
+        message: null
+      },
+      methods: {
+      },
+      beforeCreate: function () {
+        console.group('beforeCreate 创建前状态===============》');
+        console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
+        console.log("%c%s", "color:red", "data   : " + this.$data); //undefined 
+        console.log("%c%s", "color:red", "message: " + this.message)
+      },
+      created: function () {
+        console.group('created 创建完毕状态===============》');
+        console.log("%c%s", "color:red", "el     : " + this.$el); //undefined
+        console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化 
+        console.log(this.$router);
+        console.log("%c%s", "color:red", "message: " + this.message); //已被初始化
+      },
+      beforeMount: function () {
+        console.group('beforeMount 挂载前状态===============》');
+        console.log("%c%s", "color:red", "el     : " + (this.$el)); //已被初始化
+        console.log(this.$el);
+        console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化  
+        console.log("%c%s", "color:red", "message: " + this.message); //已被初始化  
+      },
+      mounted: function () {
+        console.group('mounted 挂载结束状态===============》');
+        console.log("%c%s", "color:red", "el     : " + this.$el); //已被初始化
+        console.log(this.$el);
+        console.log("%c%s", "color:red", "data   : " + this.$data); //已被初始化
+        console.log("%c%s", "color:red", "message: " + this.message); //已被初始化 
+      },
+      beforeUpdate: function () {
+        console.group('beforeUpdate 更新前状态===============》');
+        console.log("%c%s", "color:red", "el     : " + this.$el);
+        console.log(this.$el);
+        console.log("%c%s", "color:red", "data   : " + this.$data);
+        console.log("%c%s", "color:red", "message: " + this.message);
+      },
+      updated: function () {
+        console.group('updated 更新完成状态===============》');
+        console.log("%c%s", "color:red", "el     : " + this.$el);
+        console.log(this.$el);
+        console.log("%c%s", "color:red", "data   : " + this.$data);
+        console.log("%c%s", "color:red", "message: " + this.message);
+      },
+      beforeDestroy: function () {
+        console.group('beforeDestroy 销毁前状态===============》');
+        console.log("%c%s", "color:red", "el     : " + this.$el);
+        console.log(this.$el);
+        console.log("%c%s", "color:red", "data   : " + this.$data);
+        console.log("%c%s", "color:red", "message: " + this.message);
+      },
+      destroyed: function () {
+        console.group('destroyed 销毁完成状态===============》');
+        console.log("%c%s", "color:red", "el     : " + this.$el);
+        console.log(this.$el);
+        console.log("%c%s", "color:red", "data   : " + this.$data);
+        console.log("%c%s", "color:red", "message: " + this.message)
+      },
+      router
+    })
+  </script>
+
+</body>
+
+</html>
