@@ -33,7 +33,7 @@
 }
 .el-main {
   width: 100%;
-  height: 888px;
+  height: auto;
   margin-top: 70px;
   color: #333;
   border-radius: 5px;
@@ -52,13 +52,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #00defc;
+  background: #fff;
   border-radius: 5px;
   margin-bottom: 3px;
   box-shadow: 2px 2px 5px 1px #ccc;
+  color: #000;
 }
 .el-main .el-main-nav a:hover {
-  color: #fc556d;
+  color: #ccc;
 }
 .el-main .el-main-body #header {
   text-align: center;
@@ -71,10 +72,25 @@
 }
 .el-main .el-main-body .main #mentality,
 .el-main .el-main-body .main #technology,
-.el-main .el-main-body .main #code {
+.el-main .el-main-body .main #code,
+.el-main .el-main-body .main #demonstration {
   margin-bottom: 10px;
 }
+.el-main .el-main-body .main #mentality div,
+.el-main .el-main-body .main #technology div,
+.el-main .el-main-body .main #code div,
+.el-main .el-main-body .main #demonstration div {
+  text-indent: 28px;
+  margin-top: 5px;
+}
 .el-main .el-main-body .main #code {
+  margin-bottom: 50px;
+  background-color: #292727;
+  color: #dbd9d9;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 2px;
+}
+.el-main .el-main-body .main #demonstration {
   margin-bottom: 50px;
 }
 .el-main .el-main-body .main h1,
@@ -84,6 +100,11 @@
 .el-main .el-main-body .main h5,
 .el-main .el-main-body .main h6 {
   text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.el-main .el-main-body .main pre {
+  white-space: pre-wrap;
 }
 .el-main .el-main-body footer {
   width: 100%;
@@ -219,4 +240,38 @@
 }
 .aside-right .year .years {
   width: 130px;
+}
+#css-revelation-light #demonstration div h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  color: #333;
+  font-size: 80px;
+}
+#css-revelation-light #demonstration div h1::after {
+  content: attr(data-spotlight);
+  color: transparent;
+  position: absolute;
+  left: 203.5px;
+  -webkit-clip-path: ellipse(80px 80px at 0% 50%);
+  clip-path: ellipse(80px 80px at 0% 50%);
+  animation: spotlight 5s infinite;
+  background-image: url(https://images.unsplash.com/photo-1547186821-8884d8762443?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
+  background-position: center center;
+  background-size: 150%;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+@keyframes spotlight {
+  0% {
+    -webkit-clip-path: ellipse(80px 80px at 0% 50%);
+    clip-path: ellipse(80px 80px at 0% 50%);
+  }
+  50% {
+    -webkit-clip-path: ellipse(80px 80px at 100% 50%);
+    clip-path: ellipse(80px 80px at 100% 50%);
+  }
+  100% {
+    -webkit-clip-path: ellipse(80px 80px at 0% 50%);
+    clip-path: ellipse(80px 80px at 0% 50%);
+  }
 }

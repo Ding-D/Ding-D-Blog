@@ -102,6 +102,7 @@ const home = {
         <a href="javascript:;">思路</a>
         <a href="javascript:;">技术</a>
         <a href="javascript:;">代码</a>
+        <a href="javascript:;">演示</a>
         <a href="javascript:;">底部</a>
 
       </el-aside>
