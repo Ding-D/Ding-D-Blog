@@ -3,7 +3,7 @@ const home = {
   data() {
     return {
       backBtnIsShow: false,
-      date: {}
+      date: {},
     }
   },
   methods: {
@@ -59,14 +59,14 @@ const home = {
         minute: mm,
         second: ss
       }
+    },
+    scrollToView(e) {
+      var value = e.target.getAttribute('value')
+      hub.$emit('scrollToView', value)
     }
-  },
-  beforCreat: function () {
-
   },
   mounted: function () {
     this.$el.pageYOffset = 500
-    console.log(this.$el.scrollTop);
     this.backBtnIsShow = this.$route.path !== "/articleListHome" ? true : false
     this.showtime();
     setInterval(this.showtime, 1000);
@@ -80,7 +80,8 @@ const home = {
       <!-- 一级开始 -->
     <el-container>
 
-      <el-header>测试
+      <el-header >
+      测试
       </el-header>
 
       <el-main ref="elMain">
@@ -92,18 +93,18 @@ const home = {
       </el-main>
 
       <!--左侧-->
-      <el-aside id="aside-left" >
+      <el-aside id="aside-left" v-if="!backBtnIsShow">
         <article-list></article-list>
       </el-aside>
 
       <!--右侧-->
-      <el-aside class='aside-right' id="aside-maodian" width="100px" v-if="backBtnIsShow">
-        <a href="javascript:;" @click="windowScrollTop()">标题</a>
-        <a href="javascript:;">思路</a>
-        <a href="javascript:;">技术</a>
-        <a href="javascript:;">代码</a>
-        <a href="javascript:;">演示</a>
-        <a href="javascript:;">底部</a>
+      <el-aside class='aside-right' id="aside-maodian" width="auto" v-if="backBtnIsShow" >
+        <a href="javascript:;" @click="windowScrollTop()">标 题</a>
+        <a href="javascript:;" @click="scrollToView" value="mentality">思 路</a>
+        <a href="javascript:;" @click="scrollToView" value="technology">技 术</a>
+        <a href="javascript:;" @click="scrollToView" value="code">代 码</a>
+        <a href="javascript:;" @click="scrollToView" value="demonstration">演 示</a>
+        <a href="javascript:;" @click="scrollToView" value="footer">底 部</a>
 
       </el-aside>
       <el-aside class="aside-right" id="aside-times" width="auto" v-else>

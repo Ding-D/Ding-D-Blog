@@ -1,29 +1,24 @@
 
-const cssRevelationLight = {
+const cssFaultTypeBtn = {
   data() {
     // 思路内容
-    let mentality = md.render(`
-`)
+    let mentality = md.render(``)
 
     // 技术点内容
     let technology = md.render(`
 
 `)
-    console.log(technology);
 
     // 代码内容
     let code = md.render('```html' + `
-
 `+
       '```')
 
     // 演示内容
-    let demonstration = `
-`
+    let demonstration = ``
 
     // 版权信息
     let footer = ``
-
     return {
       title: '',
       mentality: mentality,
@@ -75,7 +70,7 @@ const cssRevelationLight = {
           <div v-html="technology"></div>
         </div>
         <div class="code" id="code" ref="code">
-          <span class='tooltip'>代码<span v-if="code===''">暂无</span></span>
+          <span class='tooltip'>代码<span v-if="code.length===47">暂无</span></span>
           <div v-html="code"></div>
         </div>
         <div class="demonstration" id="demonstration" ref="demonstration">

@@ -1,6 +1,6 @@
 // var normalWidth = window.innerWidth;
 // var normalHeight = window.innerHeight;
-
+// var scroll100 = true; // 控制header栏隐藏显示
 // window.onload = function () {
 //   resizeFontSize()
 // }
@@ -24,15 +24,33 @@
 //   console.log(document.documentElement.style.fontSize)
 // }
 
-window.addEventListener('scroll', function () {
-  if (document.documentElement.scrollTop >= 100) {
-    if (document.getElementById('aside-maodian')) document.getElementById('aside-maodian').style = "position:fixed;top:100px;width:100px"
-    if (document.getElementById('aside-times')) document.getElementById('aside-times').style = "position:fixed;top:100px;width:auto"
+window.addEventListener('scroll', asideScroll)
+// window.addEventListener('resize', windowRise)
+// window.addEventListener('load', windowRise)
 
+
+function windowRise() {
+  // if (window.innerWidth < 1010) {
+  //   console.log(window.innerWidth);
+  //   document.getElementsByClassName('.el-contaioner').style = `width:${window.innerWidth}px;padding:0;`
+  //   document.getElementById('root').style = `width:${window.innerWidth}px;`
+  //   if (document.getElementById('aside-maodian')) document.getElementById('aside-maodian').style = "display:none;"
+
+  // } else if (window.innerWidth >= 1010 && window.innerWidth < 1920) {
+  //   document.getElementsByClassName('.el-contaioner').style = `width:1010px;`
+  //   document.getElementById('root').style = `width:${window.innerWidth}px;`
+  //   if (document.getElementById('aside-maodian')) document.getElementById('aside-maodian').style = "display:none;"
+  // } else {
+  //   document.getElementsByClassName('.el-contaioner').style = `width:1010px;`
+  //   document.getElementById('root').style = `width:1920px;`
+  // }
+}
+function asideScroll() {
+  if (document.documentElement.scrollTop >= 70 && window.innerWidth === 1920 && (window.innerWidth >= 1010 && window.innerWidth < 1920)) {
+    if (document.getElementById('aside-maodian')) document.getElementById('aside-maodian').style = "position:fixed;width:auto;"
+    if (document.getElementById('aside-times')) document.getElementById('aside-times').style = "position:fixed;width:auto"
   } else {
-    if (document.getElementById('aside-maodian')) document.getElementById('aside-maodian').style = "width:100px"
-
+    if (document.getElementById('aside-maodian')) document.getElementById('aside-maodian').style = "width:auto;"
     if (document.getElementById('aside-times')) document.getElementById('aside-times').style = "width:auto"
-
   }
-})
+}

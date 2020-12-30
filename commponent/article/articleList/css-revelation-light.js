@@ -1,10 +1,15 @@
-// 思路内容
-let mentality = md.render(`
+
+const cssRevelationLight = {
+
+  data() {
+
+    // 思路内容
+    let mentality = md.render(`
 利用伪元素以及clip-path：ellipse绘制的圆形，和动画效果制作
 `)
 
-// 技术点内容
-let technology = md.render(`
+    // 技术点内容
+    let technology = md.render(`
 ## 原理
 - 1.根据伪元素定位，将两个文本内容重合，一个纯色，一个有颜色
 - 2.使用 clip-path 做圆形遮罩 
@@ -16,10 +21,10 @@ let technology = md.render(`
 ### Animation Css动画
 - 利用@keyframes 在不同时间段改变 clip-path 的位置
 `)
-console.log(technology);
+    console.log(technology);
 
-// 代码内容
-let code = md.render('```html' + `
+    // 代码内容
+    let code = md.render('```html' + `
 <style>
   h1 {
     font-family: Arial, Helvetica, sans-serif;
@@ -69,19 +74,23 @@ let code = md.render('```html' + `
   无js代码
 </script>
 `+
-  '```')
+      '```')
 
-let demonstration = `
+    let demonstration = `
 <h1 class="before" data-spotlight="CodingStartUp">CodingStartUp</h1>
 `
-const cssRevelationLight = {
-  data() {
+
+    // 版权信息
+    let footer = `
+来自哔哩哔哩up主：CodingStartUp-Steven
+`
     return {
       title: '纯CSS制作聚光灯效果',
       mentality: mentality,
       technology: technology,
       code: code,
       demonstration: demonstration,
+      footer: footer,
       maodian: {
         mentalityY: null,
         technologyY: null,
@@ -92,10 +101,16 @@ const cssRevelationLight = {
   methods: {
 
   },
-  beforeMount: function () {
-  },
+  // 元素dom创建完成
   mounted: function () {
-
+    hub.$on('scrollToView', val => {
+      var ele = document.getElementById(`${val}`)
+      var top = ele.offsetTop + ele.offsetParent.offsetTop
+      window.scrollTo({
+        top: top - 60,
+        behavior: "smooth"
+      })
+    })
   },
   beforeUpdate: function () {
 
@@ -111,24 +126,27 @@ const cssRevelationLight = {
       </header>
       <!-- 中间主体区域 -->
       <div class="main">
-        <div class="mentality" id="mentality" re>
+        <div class="mentality" id="mentality" ref="mentality">
           <span class='tooltip'>思路<span v-if="mentality===''">暂无</span></span>
           <div v-html="mentality"></div>
         </div>
-        <div class="technology" id="technology" >
+        <div class="technology" id="technology" ref="technology">
           <span class='tooltip'>技术点<span v-if="technology===''">暂无</span></span>
           <div v-html="technology"></div>
         </div>
-        <div class="code" id="code" >
+        <div class="code" id="code" ref="code">
           <span class='tooltip'>代码<span v-if="code===''">暂无</span></span>
           <div v-html="code"></div>
         </div>
-        <div class="demonstration" id="demonstration" >
+        <div class="demonstration" id="demonstration" ref="demonstration">
           <span class='tooltip'><span v-if="demonstration===''">暂无</span>演示</span>
           <div v-html="demonstration"></div>
         </div>
       </div>
       <!-- 尾部区域 -->
-      <footer class="footer" id="footer">版权信息</footer>
+      <footer class="footer" id="footer">
+      版权信息
+        <p>来自哔哩哔哩up主：CodingStartUp-Steven</p>
+      </footer>
   </div>`
 }

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Document</title>
+  <title>叮咚の</title>
   <link rel="stylesheet" href="./assets/css/index.css">
   <script src="./assets/lib/less.js-2.5.3/less.min.js"></script>
   <!-- 引入样式 -->
@@ -18,8 +18,10 @@
   <!-- 引入组件库 -->
   <!-- <script src="https://unpkg.com/element-ui/lib/index.js"></script> -->
   <script src="./assets/lib/element/index.js"></script>
-  <script src="./assets/js/index.js"></script>
   <script src="./assets/lib/makedown-it/markdown-it.min.js"></script>
+
+  <!-- 全局js -->
+  <script src="./assets/js/index.js"></script>
   <script>
     var md = window.markdownit();
   </script>
@@ -34,7 +36,10 @@
   <script src="./commponent/article/article-list.js"></script>
   <script src="./commponent/article/article-list-home.js"></script>
   <script src="./commponent/article/articleList/css-revelation-light.js"></script>
+  <script src="./commponent/article/articleList/css-2077.js"></script>
   <script>
+    // 兄弟组件之间传值
+    var hub = new Vue()
     // 创建路由实例对象
     const router = new VueRouter({
       // 所有的路由规则
@@ -45,8 +50,8 @@
           redirect: '/articleListHome',  //重定向 
           children: [
             { path: '/articleListHome', component: articleListHome },
-            { path: '/cssRevelationLight', component: cssRevelationLight }
-
+            { path: '/cssRevelationLight', component: cssRevelationLight },
+            { path: '/cssFaultTypeBtn', component: cssFaultTypeBtn }
           ]
         },
       ]

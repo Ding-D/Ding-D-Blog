@@ -5,16 +5,25 @@
   font-family: 'Microsoft YaHei';
   font-weight: 700;
   list-style: none;
+  animation: 3s linear;
+}
+
+body {
+  background: #f5f6f7 no-repeat;
 }
 
 #root {
   width: 1900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .el-container {
   width: 1010px;
-  margin: 0 auto;
+  // margin: 0 auto;
   position: relative;
+  padding: 0 24px 16px;
 }
 
 .el-header,
@@ -42,7 +51,7 @@
   margin-top: 70px;
   color: #333;
   border-radius: 5px;
-  background-color: #E9EEF3;
+  background-color: #fff;
   font-size: 16px;
   padding: 5px;
 
@@ -123,9 +132,12 @@
 
     footer {
       width: 100%;
-      position: absolute;
-      bottom: 0;
       text-align: center;
+
+      p {
+        margin-top: 10px;
+        color: #ccc;
+      }
     }
   }
 
@@ -135,7 +147,7 @@
 
       div {
         position: absolute;
-        right: 10px;
+        right: 35px;
         font-size: 14px;
         color: #8f8d8d;
       }
@@ -154,15 +166,11 @@
 }
 
 .el-aside {
-  background-color: #D3DCE6;
   color: #333;
   text-align: center;
-  position: absolute;
-  top: 100px;
-  left: 50%;
+
   border-radius: 5px;
   font-size: 16px;
-  box-shadow: 5px 5px 10px 1px #ccc;
 }
 
 .el-aside::-webkit-scrollbar {
@@ -170,21 +178,27 @@
 }
 
 #aside-left {
-  top: 0px;
-  margin-left: -850px;
+  background-color: transparent;
+  margin-left: -830px;
   padding: 5px;
+  position: absolute;
+  top: 0;
+  left: 50%;
 
   #article-list {
     a {
       display: inline-block;
       text-decoration: none;
+      width: 300px;
       height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 5px;
-      margin-bottom: 3px;
+      margin-bottom: 5px;
+      background-color: #fff;
       color: #000;
+      box-shadow: 1px 1px 5px 1px #ccc;
     }
 
     a:hover {
@@ -201,21 +215,28 @@
 .aside-right {
   margin-left: 520px;
   padding: 5px;
+  background: transparent;
+  position: absolute;
+  top: 100px;
+  left: 50%;
 
   a {
     display: inline-block;
     text-decoration: none;
+    width: 100px;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
     background: #00defc;
     border-radius: 5px;
     margin-bottom: 3px;
+    box-shadow: 1px 1px 5px 1px #ccc;
   }
 
   a:hover {
-    color: #fc556d
+    color: #93ecc8
   }
 
   a:last-child {
@@ -281,6 +302,11 @@
 
 }
 
+#maodian {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 
 // ===============================================================================
