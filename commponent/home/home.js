@@ -1,23 +1,23 @@
 
 const home = {
-  data() {
+  data () {
     return {
       backBtnIsShow: false,
       date: {},
     }
   },
   methods: {
-    handleBack() {
+    handleBack () {
       this.$router.back()
       console.log(this.$router);
     },
-    windowScrollTop() {
+    windowScrollTop () {
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       })
     },
-    showtime() {
+    showtime () {
       let data = new Date();
       let y = data.getFullYear();
       let m = data.getMonth() + 1;
@@ -60,7 +60,7 @@ const home = {
         second: ss
       }
     },
-    scrollToView(e) {
+    scrollToView (e) {
       var value = e.target.getAttribute('value')
       hub.$emit('scrollToView', value)
     }
@@ -81,7 +81,7 @@ const home = {
     <el-container>
 
       <el-header >
-      测试
+      测试阶段
       </el-header>
 
       <el-main ref="elMain">
