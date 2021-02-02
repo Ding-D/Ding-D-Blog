@@ -1,5 +1,5 @@
 
-// const cssRevelationLight = {
+// const articleName  = {
 //   data() {
 //     // 思路内容
 //     let mentality = md.render(`
@@ -90,18 +90,3 @@
 //       </footer>
 //   </div>`
 // }
-toNewYear(2020, 2021)
-function toNewYear (oldYear, newYear) {
-  for (let i = 1; i <= 12; i++) {
-    if (i === 12) {
-      if (oldYear === newYear) {
-        oldYear++;
-        newYear += 2;
-      }
-      oldYear = newYear;
-      i = 0;
-    }
-    console.log(`${oldYear}年${i}月好`);
-    if (oldYear === 2024) return
-  }
-}
